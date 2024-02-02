@@ -3,4 +3,3 @@ class ProductRepository:
         return {
             f"Продукт с c id: {product_id}"
         }
-
