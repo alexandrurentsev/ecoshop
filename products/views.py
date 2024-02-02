@@ -1,12 +1,5 @@
-from fastapi import APIRouter
 from products.crud import ProductRepository
-
-
-
-router = APIRouter(
-    prefix="/product",
-    tags=["Product"],
-)
+from products.router import router
 
 
 @router.get("/")
