@@ -1,17 +1,10 @@
 from fastapi import FastAPI
-from pydantic import BaseModel, EmailStr
-
+from products.views import router
 import uvicorn
 
 app = FastAPI()
 
-
-@app.get("/product/")
-def get_product_by_id(product_id: int):
-    return {
-        f"Продукт с c id: {product_id}"
-    }
-
+app.include_router(router)
 
 
 if __name__ == '__main__':
