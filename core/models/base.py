@@ -1,12 +1,12 @@
 from sqlalchemy.orm import (
-    DeclarativeBase, 
-    Mapped, 
-    mapped_column, 
+    DeclarativeBase,
+    Mapped,
+    mapped_column,
     declared_attr
 )
 
 
-class   Base(DeclarativeBase):
+class Base(DeclarativeBase):
     __abstract__ = True
 
     @declared_attr.directive
