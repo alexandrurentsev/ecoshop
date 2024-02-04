@@ -8,8 +8,6 @@ from sqlalchemy.ext.asyncio import (
 )
 
 
-
-
 class DatabaseHelper:
     def __init__(self, url: str, echo: bool = False):
         self.engine = create_async_engine(
