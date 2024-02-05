@@ -8,9 +8,13 @@ class Settings(BaseSettings):
     db_url: str = DEFAULT_DB_URL
     db_echo: bool = DEFAULT_DB_ECHO
 
+    class Config:
+        env_file = ".env"
+
 
 settings = Settings()
 app = FastAPI()
+print(settings.db_echo)
 
 
 @app.get("/info")
