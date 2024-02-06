@@ -18,12 +18,7 @@ class ProductRepository:
     @staticmethod
     async def create_product(product_in: ProductCreate) -> Product:
         async with async_session_maker() as session:
-            product = Product(
-                name=product_in.name,
-                description=product_in.description,
-                price=product_in.price,
-            )
+            product = Product(**product_in.model_dump())
             session.add(product)
             await session.commit()
-            await session.refresh(product)
             return product
