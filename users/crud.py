@@ -1,6 +1,6 @@
+from core.crud.base_repository import BaseRepository
+from users.models import Users
 
 
-class UserRepository:
-    @staticmethod
-    async def get_by_id(product_id: int):
-        pass
+class UserRepository(BaseRepository):
+    model = Users

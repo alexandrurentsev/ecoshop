@@ -1,10 +1,8 @@
 from core.models import Base
-from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import String
+from sqlalchemy import String, Column
 
 
 class Users(Base):
     __tablename__ = "users"
-
-    email = Mapped[str] = mapped_column(String(32), unique=True, nullable=False)
-    hashed_password = Mapped[str] = mapped_column(String(32), nullable=False)
+    email = Column(String, nullable=False)
+    hashed_password = Column(String, nullable=False)

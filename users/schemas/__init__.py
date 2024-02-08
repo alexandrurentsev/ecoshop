@@ -1,3 +1,3 @@
-from users.schemas.register_user import RegisterUser
+from users.schemas.register_user import AuthUser
 
-__all__ = RegisterUser
+__all__ = AuthUser
