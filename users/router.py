@@ -31,6 +31,6 @@ async def login_user(response: Response, data_for_login: AuthUser):
     if not pasword_is_valid:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
     # sub - имя переменной, рекомендованное самим jwt
-    access_token = create_access_token({"sub": user.id})
+    access_token = create_access_token({"sub": str(user.id)})
     response.set_cookie("product_access_token", access_token, httponly=True)
     return {"access_token": access_token}
