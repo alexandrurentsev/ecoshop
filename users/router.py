@@ -23,9 +23,10 @@ async def login_user(response: Response, data_for_login: AuthUser):
     # TODO условие в отдельную функцию + объединить
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+    hashed_password = get_password_hash(data_for_login.password)
     pasword_is_valid = verify_password(
         data_for_login.password,
-        data_for_login.password
+        hashed_password
         )
     if not pasword_is_valid:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
