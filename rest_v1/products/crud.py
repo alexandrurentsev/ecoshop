@@ -1,10 +1,13 @@
 from typing import Union
+from fastapi import Depends
 
 from sqlalchemy import select
 
 from core.models.db_helper import async_session_maker
 from core.models.product import Product
 from rest_v1.products.schemas import ProductCreate
+from users.dependencies import get_current_user
+from users.models import Users
 
 
 class ProductRepository:
@@ -22,3 +25,7 @@ class ProductRepository:
             session.add(product)
             await session.commit()
             return product
+
+    @staticmethod
+    async def get_all(user: Users = Depends(get_current_user)):
+        print(user, type(user), user.email)

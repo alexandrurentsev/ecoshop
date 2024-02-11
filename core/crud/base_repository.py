@@ -3,7 +3,7 @@ from sqlalchemy import select, insert
 from core.models.db_helper import async_session_maker
 
 
-class BaseRepository():
+class BaseRepository:
     model = None
 
     @classmethod

@@ -5,7 +5,7 @@ from core.default_constants import (
     DEFAULT_DB_URL,
     DEFAULT_DB_ECHO,
     DEFAULT_ALGORITHM,
-    DEFAULT_SECRET_KEY
+    DEFAULT_SECRET_KEY,
 )
 
 
