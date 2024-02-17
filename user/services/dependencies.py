@@ -2,9 +2,10 @@
 from datetime import datetime
 from fastapi import Request, status, HTTPException, Depends
 from jose import jwt, JWTError
+from core.config import settings
 
-from users.crud import UserRepository
-from users.models import Users
+from user.repositories import UserRepository
+from user.models import Users
 
 
 def get_token(request: Request):
@@ -23,7 +24,7 @@ async def get_current_user(token: str = Depends(get_token)) -> Users:
     # TODO создать базовый класс except -> наследоваться от него ->
     # -> Обрабатывать кастомные ошибки
     try:
-        payload = jwt.decode()
+        payload = jwt.decode(token, settings.SECRET_KEY)
     except JWTError:
         jwt_error_detail = "Токен не является JWT"
         raise HTTPException(status_code=fail_status, detail=jwt_error_detail)

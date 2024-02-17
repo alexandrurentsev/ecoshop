@@ -6,7 +6,7 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from core.models import Base
-from users.models import Users
+from user.models import Users
 from alembic import context
 from core.config import settings
 

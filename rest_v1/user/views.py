@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Response, status
-from users.auth import create_access_token, get_password_hash, verify_password
-from users.crud import UserRepository
+from user.services.auth import create_access_token, get_password_hash, verify_password
+from user.repositories import UserRepository
 
-from users.schemas import AuthUser
+from user.schemas import AuthUser
 
 # TODO декомпозицию выполнить
 

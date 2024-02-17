@@ -1,9 +1,9 @@
-from fastapi import APIRouter, Depends, Request, status
+from fastapi import APIRouter, Depends, status
+from product.repositories import ProductRepository
+from product.schemas import ProductCreate
 
-from rest_v1.products.crud import ProductRepository
-from rest_v1.products.schemas import ProductCreate
-from users.dependencies import get_current_user
-from users.models import Users
+from user.services.dependencies import get_current_user
+from user.models import Users
 
 router = APIRouter(tags=["Продукты"])
 
@@ -22,3 +22,8 @@ async def create_product(product_in: ProductCreate):
 @router.get("/{product_id}")
 async def get_product_by_id(product_id: int, user: Users = Depends(get_current_user)):
     return await product_repository.get_by_id(product_id=product_id)
+
+
+@router.get("/all")
+async def get_all_products(user: Users = Depends(get_current_user)):
+    return await product_repository.get_all()

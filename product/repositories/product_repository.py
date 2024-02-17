@@ -4,10 +4,11 @@ from fastapi import Depends
 from sqlalchemy import select
 
 from core.models.db_helper import async_session_maker
-from core.models.product import Product
-from rest_v1.products.schemas import ProductCreate
-from users.dependencies import get_current_user
-from users.models import Users
+from product.models import Product
+
+from product.schemas import ProductCreate
+from user.services.dependencies import get_current_user
+from user.models import Users
 
 
 class ProductRepository:
@@ -19,13 +20,13 @@ class ProductRepository:
             return result.mappings().all()
 
     @staticmethod
+    async def get_all(user: Users = Depends(get_current_user)):
+        print(user, type(user), user.email)
+
+    @staticmethod
     async def create_product(product_in: ProductCreate) -> Product:
         async with async_session_maker() as session:
             product = Product(**product_in.model_dump())
             session.add(product)
             await session.commit()
             return product
-
-    @staticmethod
-    async def get_all(user: Users = Depends(get_current_user)):
-        print(user, type(user), user.email)
