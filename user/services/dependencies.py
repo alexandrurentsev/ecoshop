@@ -5,7 +5,7 @@ from jose import jwt, JWTError
 from core.config import settings
 
 from user.repositories import UserRepository
-from user.models import Users
+from user.models import User
 
 
 def get_token(request: Request):
@@ -18,7 +18,7 @@ def get_token(request: Request):
 
 
 # Depends показывает, что он зависит от функции get_token
-async def get_current_user(token: str = Depends(get_token)) -> Users:
+async def get_current_user(token: str = Depends(get_token)) -> User:
     fail_status = status.HTTP_401_UNAUTHORIZED
     # TODO вынести в отдельный метод
     # TODO создать базовый класс except -> наследоваться от него ->
