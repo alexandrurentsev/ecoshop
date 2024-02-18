@@ -1,5 +1,9 @@
-# KostromaGrove
+# Мини-маркет экологической продукции
 
-### Техническое описание: 
-#### Авторизация/аутентификация - JWT (библиотека fastapi-users)
-#### Запросы к базе - SQLAlchemy
+![Python](https://img.shields.io/badge/-Python-lightgrey?style=for-the-badge&logo=python) ![FastApi](https://img.shields.io/badge/-FastApi-ff69b4?style=for-the-badge&logo=fastapi)
+
+
+| Модель | Описание |
+| ---- | ---- |
+| Продукт | Единица товара |
+| Пользователь | Авторизация/аутентификация |
