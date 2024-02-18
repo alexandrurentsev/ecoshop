@@ -2,7 +2,7 @@ from .product_schema import (
     ProductBase,
     ProductCreate,
     ProductUpdate,
-    ProductUpdatePartial
+    ProductUpdatePartial,
 )
 
 __all__ = (
@@ -10,4 +10,4 @@ __all__ = (
     "ProductCreate",
     "ProductUpdate",
     "ProductUpdatePartial",
-    )
+)

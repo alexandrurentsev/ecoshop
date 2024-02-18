@@ -1,7 +1,3 @@
-from .product_repository import (
-    ProductRepository
-)
+from .product_repository import ProductRepository
 
-__all__ = (
-    "ProductRepository",
-    )
+__all__ = ("ProductRepository",)
