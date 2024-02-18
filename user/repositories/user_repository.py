@@ -1,4 +1,4 @@
-from core.crud.base_repository import BaseRepository
+from core.crud import BaseRepository
 from user.models import Users
 
 
