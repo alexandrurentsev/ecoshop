@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html =lang"ru">
 <html>
     <head>
         <meta charset="utf-8">
@@ -7,12 +8,35 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Продукты</title>
+        <style>
+            body {
+                background-color: #c3e6cb; /* Зеленый фон */
+                margin: 20px; /* Отступы */
+                padding: 20px; /* Отступы */
+                display: flex;
+                justify-content: center;
+            }
+            .product {
+                background-color: #fff; /* Белый фон для продуктов */
+                padding: 20px; /* Отступы */
+                margin-bottom: 20px; /* Отступы */
+                max-width: 600px; /* Максимальная ширина контейнера */
+                text-align: center; /* Выравнивание по центру */
+            }
+            .product img {
+                width: 150%;
+                height: auto;
+                display: block; /* Чтобы изображение по центру */
+                margin: 0 auto; /* Чтобы изображение по центру */
+            }
+        </style>
         <link rel="stylesheet" href="">
     </head>
     <body>
         <div>
             {%for product in products %}
             <div>
+                <img src="{{ url_for ('static', path='images/' + dict(product)["Product"].image_id|string + '.webp') }}" alt="Фото продукта" width="300">
                 <h1>{{dict(product)["Product"].name}}</h1>
                 <h4>{{dict(product)["Product"].description}}</h4>
             </div>
