@@ -20,9 +20,6 @@ def get_token(request: Request):
 # Depends показывает, что он зависит от функции get_token
 async def get_current_user(token: str = Depends(get_token)) -> User:
     fail_status = status.HTTP_401_UNAUTHORIZED
-    # TODO вынести в отдельный метод
-    # TODO создать базовый класс except -> наследоваться от него ->
-    # -> Обрабатывать кастомные ошибки
     try:
         payload = jwt.decode(token, settings.SECRET_KEY)
     except JWTError:

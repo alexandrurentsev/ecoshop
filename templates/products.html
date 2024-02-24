@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Продукты</title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div>
+            {%for product in products %}
+            <div>
+                <h1>{{dict(product)["Product"].name}}</h1>
+                <h4>{{dict(product)["Product"].description}}</h4>
+            </div>
+            {%endfor%}
+        </div>
+    </body>
+</html>
