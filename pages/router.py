@@ -1,8 +1,6 @@
 from fastapi import APIRouter, Depends, Request
 from fastapi.templating import Jinja2Templates
-
 from rest_v1.product.views import get_all_products
-
 
 router = APIRouter(prefix="/pages", tags=["Фронтенд"])
 

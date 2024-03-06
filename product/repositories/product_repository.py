@@ -1,10 +1,9 @@
 from typing import Union
 
+from core.models.db_helper import async_session_maker
 from sqlalchemy import select
 
-from core.models.db_helper import async_session_maker
 from product.models import Product
-
 from product.schemas import ProductCreate
 
 

@@ -1,8 +1,8 @@
 
+from core.config import settings
 from sqladmin.authentication import AuthenticationBackend
 from starlette.requests import Request
 from starlette.responses import RedirectResponse
-from core.config import settings
 
 from user.services.auth import authenticate_user, create_access_token
 from user.services.dependencies import get_current_user
