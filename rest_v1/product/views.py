@@ -25,7 +25,7 @@ async def create_product(
 
 @router.get("/all")
 @cache(expire=20)
-async def get_all_products(user: User = Depends(get_current_user)):
+async def get_all_products():
     return await product_repository.get_all()
 
 
