@@ -1,0 +1,50 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:15
+    container_name: db_postgres
+    env_file:
+      - .env-for-prod
+    ports:
+      - 5439:5432
+
+  redis:
+    image: redis:7
+    container_name: db_redis
+
+  kostroma_eco:
+    image: kostroma_image
+    container_name: kostroma_app
+    build:
+      context: .
+    env_file:
+      - .env-for-prod
+    depends_on:
+      - db
+      - redis
+      - celery
+    command: ["/code/docker/app.sh"]
+    ports:
+      - 7777:8000
+
+  celery:
+    build:
+      context: .
+    container_name: eco_celery
+    depends_on:
+      - redis
+    command: ["/code/docker/celery.sh", "celery"]
+    env_file:
+      - .env-for-prod
+
+  flower:
+    build:
+      context: .
+    container_name: eco_flower
+    depends_on:
+      - redis
+    command: ["/code/docker/celery.sh", "flower"]
+    env_file:
+      - .env-for-prod
+    ports:
+      - 5555:5555
